@@ -1,0 +1,121 @@
+<main class="home" id="home">
+    <section class="hero">
+        <div class="content">
+            <img src="/images/me.png" alt="Alejandro Rincón's profile photo" class="photo">
+            <div class="info">
+                <div class="info-text">
+                    <h1>Hi, I'm Alejandro Rincón</h1>
+                    <p class="tagline">
+                        A result-oriented full stack web developer. <br>
+                        I build scalable, maintainable, and effective web and mobile applications.
+                    </p>
+                    <div class="tech-stack">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-me" id="about">
+        <div class="content">
+            <h2>About Me</h2>
+            <p class="top-text">
+                More than 5 years of experience in full stack development, focusing on scalable, maintainable projects.
+            </p>
+            <div class="details">
+                <p class="bio">
+                    I am a full stack web developer with +5 years of experience building, maintaining, and scaling
+                    several projects. I also share content on YouTube about software development. You can also see some
+                    of my projects below.
+                </p>
+                <div class="tools">
+                    @for (tool of tools; track tool.name) {
+                    <div class="tool">
+                        <div class="tool-image" [style.background-image]="'url(' + tool.src + ')'"></div>
+                        <div class="tool-text">{{tool.name}}</div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>My Work</h2>
+        <ul class="projects-container">
+            @for (project of projects; track project.name) {
+            <li class="project">
+                <div class="project__image-wrapper">
+                    @if (project.imageUrl) {
+                    <img src={{project.imageUrl}} alt="Screenshot of {{project.name}}" loading="lazy"
+                        class="project__image">
+                    } @else {
+                    <div class="project__image--placeholder">
+                        <mat-icon>image_not_supported</mat-icon>
+                        <span>Image Unavailable</span>
+                    </div>
+                    }
+                </div>
+
+                <div class="project__text-content">
+                    <h3>{{project.name}}</h3>
+                    <p class="project__description">
+                        {{project.description}}
+                    </p>
+                    <div class="project-actions">
+                        <a href={{project.githubUrl}} mat-button target="_blank">See it in GitHub</a>
+                        @if (project.isAlive) {
+                        <a href={{project.url}} mat-button  target="_blank">See it live</a>
+                        }
+                    </div>
+                </div>
+            </li>
+            } @empty {
+            <li class="empty-message">No projects found. Check back soon!</li>
+            }
+        </ul>
+    </section>
+
+    <div class="contact" id="contact">
+        <section class="contact-form-container">
+            <h2>Contact Me</h2>
+            <form [formGroup]="formGroup" (ngSubmit)="sendEmail($event)" class="mat-form">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Your Name</mat-label>
+                    <input matInput formControlName="name" required>
+
+                    @if (formGroup.get('name')?.hasError('required')) {
+                    <mat-error>Name is required</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Your Email</mat-label>
+                    <input matInput formControlName="email" required>
+
+                    @if (formGroup.get('email')?.hasError('required')) {
+                    <mat-error>Email is required</mat-error>
+                    } @else if (formGroup.get('email')?.hasError('email')) {
+                    <mat-error>Please enter a valid email</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Your Message</mat-label>
+                    <textarea matInput formControlName="message" rows="5" required></textarea>
+
+                    @if (formGroup.get('message')?.hasError('required')) {
+                    <mat-error>Message is required</mat-error>
+                    }
+                </mat-form-field>
+
+                <div class="submit-area">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid ">
+                        send
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+</main>

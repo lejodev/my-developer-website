@@ -1,0 +1,118 @@
+$footer-bg: #212121;
+$text-color: #ffffff;
+$muted-color: #ccc;
+$accent-color: #4CAF50;
+$icon-size: 24px;
+$padding-mobile: 20px 10px;
+$padding-desktop: 20px 5%;
+
+@mixin accent-hover($property: color) {
+    #{$property}: $accent-color;
+}
+
+.footer {
+    background-color: $footer-bg;
+    color: $text-color;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $padding-mobile;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        text-decoration: none;
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 700;
+        transition: color 0.3s ease;
+
+        &:hover {
+            @include accent-hover;
+        }
+    }
+
+    &__nav {
+        margin: 15px 0;
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 5px 0;
+
+                a {
+                    text-decoration: none;
+                    color: $muted-color;
+                    font-size: 1rem;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        @include accent-hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .socials {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+
+        a {
+            color: $muted-color;
+
+            .mat-icon {
+                color: $muted-color;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                width: $icon-size;
+                height: $icon-size;
+                font-size: $icon-size;
+
+                &:hover {
+                    @include accent-hover;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 769px) {
+        padding: $padding-desktop;
+
+        .footer__content {
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .footer__nav {
+            margin: 0;
+
+            .nav-links {
+                flex-direction: row;
+
+                li {
+                    margin: 0 15px;
+                }
+            }
+        }
+
+        .socials {
+            margin-top: 0;
+        }
+    }
+}

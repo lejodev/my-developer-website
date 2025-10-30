@@ -1,0 +1,120 @@
+$glass-color-mobile: rgba(160, 158, 158, 0.253);
+$glass-color-desktop: rgba(160, 158, 158, 0.253);
+$border-color: rgba(255, 255, 255, 0.25);
+$text-color: #f3f3f3;
+$text-hover-color: #007aff;
+$header-height: 56px;
+$desktop-height: 70px;
+$floating-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$desktop-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+$breakpoint-desktop: 768px;
+
+
+.header {
+    position: fixed;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: $header-height;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 0;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+
+    background-color: $glass-color-mobile;
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid $border-color;
+    box-shadow: $floating-shadow;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $text-color;
+    text-decoration: none;
+    flex-shrink: 0;
+    color: $text-color;
+    cursor: pointer;
+}
+
+nav {
+    .nav-links {
+        display: none;
+
+        li {
+            display: flex;
+            a {
+                color: $text-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.header {
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: $text-color;
+    }
+}
+
+main {
+    padding-top: calc($header-height + 1.5rem);
+}
+
+@media (min-width: $breakpoint-desktop) {
+    .header {
+        top: 1.2rem;
+        width: clamp(280px, 90%, 1000px);
+        height: $desktop-height;
+        padding: 0 2rem;
+        border-radius: 1.5rem;
+
+        background-color: $glass-color-desktop;
+        backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: $desktop-shadow;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        margin-right: 1.5rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    nav .nav-links {
+        display: flex;
+        gap: 1.5rem;
+
+        li {
+            list-style: none;
+
+            a {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $text-color;
+                text-decoration: none;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: $text-hover-color;
+                }
+            }
+        }
+    }
+
+    main {
+        padding-top: calc($desktop-height + 2.4rem);
+    }
+}
