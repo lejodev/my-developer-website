@@ -12,8 +12,10 @@ export const projects: Project[] = [
     {
         name: 'NewLight',
         description: 'A commerce website for a lighting store',
-        isAlive: false,
+        isAlive: true,
+        imageUrl: '/images/newlight.png',
         githubUrl: 'https://github.com/lejodev/new-light-backend',
+        url: 'https://newlight-store-frontend.vercel.app/'
     },
     {
         name: 'JournalIT',

@@ -1,7 +1,7 @@
 $footer-bg: #212121;
 $text-color: #ffffff;
 $muted-color: #ccc;
-$accent-color: #4CAF50;
+$accent-color: #007aff;
 $icon-size: 24px;
 $padding-mobile: 20px 10px;
 $padding-desktop: 20px 5%;
@@ -31,6 +31,7 @@ $padding-desktop: 20px 5%;
         font-size: 1.5rem;
         font-weight: 700;
         transition: color 0.3s ease;
+        cursor: pointer;
 
         &:hover {
             @include accent-hover;
@@ -49,6 +50,7 @@ $padding-desktop: 20px 5%;
 
             li {
                 margin: 5px 0;
+                cursor: pointer;
 
                 a {
                     text-decoration: none;
