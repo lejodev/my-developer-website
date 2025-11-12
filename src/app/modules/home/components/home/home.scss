@@ -5,7 +5,7 @@ $accent-hover: #0056b3;
 $accent-shadow: rgba(0, 123, 255, 0.4);
 
 
-$text-light: #f0f0f0;
+$text-light: white;
 $text-muted: #b0b0b0;
 $text-dark: #333333;
 $border-dark: #3a3a3a;
@@ -397,6 +397,10 @@ p {
             flex-direction: column;
             gap: 20px;
 
+            input {
+                color: $text-light !important;
+            }
+
             mat-form-field {
                 width: 100%;
                 font-size: 1rem;
@@ -406,7 +410,7 @@ p {
                 }
 
                 .mat-form-field-outline {
-                    color: #555555 !important;
+                    color: white !important;
                 }
 
                 &.mat-focused .mat-form-field-outline-thick {
@@ -420,6 +424,10 @@ p {
                 .mat-input-element {
                     caret-color: $accent-color;
                     color: $text-light;
+
+                    &::placeholder {
+                        color: $text-muted;
+                    }
                 }
 
                 .mat-error {
@@ -429,6 +437,7 @@ p {
 
             textarea {
                 resize: vertical;
+                color: $text-light !important;
             }
         }
 
