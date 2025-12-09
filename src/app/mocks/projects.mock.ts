@@ -21,6 +21,7 @@ export const projects: Project[] = [
         name: 'JournalIT',
         description: 'A Journaling website where each user can save theirn own notes, thinkings and more, is aimed to be a mobile app as well',
         isAlive: false,
+        imageUrl: '/images/journal.png',
         githubUrl: 'https://github.com/lejodev/journaling-frontend',
     }
 ]
