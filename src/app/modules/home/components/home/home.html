@@ -19,14 +19,13 @@
     <section class="about-me" id="about">
         <div class="content">
             <h2>About Me</h2>
-            <p class="top-text">
-                More than 5 years of experience in full stack development, focusing on scalable, maintainable projects.
-            </p>
             <div class="details">
                 <p class="bio">
-                    I am a full stack web developer with +5 years of experience building, maintaining, and scaling
-                    several projects. I also share content on YouTube about software development. You can also see some
-                    of my projects below.
+                    A <strong>Full-Stack Developer</strong> with <strong>strong>5+ years of immersion</strong>in the
+                    <strong>TypeScript ecosystem</strong> and <strong>scalable Backend technologies</strong>.
+                    Specialized in <strong>architecture design</strong>, <strong>robust relational databases
+                        (PostgreSQL)</strong>, and <strong>Enterprise frameworks</strong> such as
+                    <strong>Angular</strong> and <strong>NestJS</strong>.
                 </p>
                 <div class="tools">
                     @for (tool of tools; track tool.name) {
@@ -65,7 +64,7 @@
                     <div class="project-actions">
                         <a href={{project.githubUrl}} mat-button target="_blank">See it in GitHub</a>
                         @if (project.isAlive) {
-                        <a href={{project.url}} mat-button  target="_blank">See it live</a>
+                        <a href={{project.url}} mat-button target="_blank">See it live</a>
                         }
                     </div>
                 </div>
